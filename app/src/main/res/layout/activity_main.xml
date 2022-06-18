@@ -10,7 +10,7 @@
         android:layout_width="135dp"
         android:layout_height="122dp"
         android:layout_gravity="center"
-        android:layout_marginTop="200px"
+        android:layout_marginTop="200dp"
         app:srcCompat="@drawable/google" />
 
     <TextView

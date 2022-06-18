@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    compileSdk 32
 
     defaultConfig {
         applicationId "com.example.grupo5_lab2_iniciosesionfirebase"
-        minSdk 18
+        minSdk 19
         targetSdk 32
         versionCode 1
         versionName "1.0"
