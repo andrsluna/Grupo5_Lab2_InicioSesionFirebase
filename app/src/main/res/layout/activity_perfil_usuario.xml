@@ -35,10 +35,53 @@
         android:text="correo"
         android:textSize="18sp" />
 
+    <TextView
+        android:id="@+id/txt_tweet"
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Tweet"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edtxt_tweet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Escriba el tweet"
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/txt_fecha"
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="fecha"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edtxt_fecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Ingresa la fecha"
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
+
+    <Button
+        android:id="@+id/btn_rtweet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="realizartweet"
+        android:text="Realizar Tweet"
+        app:backgroundTint="#4CAF50" />
+
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="cerrarSesion"
         android:text="Cerrar Sesion" />
+
 </LinearLayout>

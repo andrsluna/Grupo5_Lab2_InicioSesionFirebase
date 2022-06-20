@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -21,8 +23,10 @@ import java.util.Map;
 
 public class PerfilUsuario extends AppCompatActivity {
     TextView txt_id, txt_name, txt_email;
+    EditText ctweet, cfecha;
     ImageView imv_photo;
     DatabaseReference db_reference;
+    String usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +45,15 @@ public class PerfilUsuario extends AppCompatActivity {
         txt_email.setText(info_user.get("user_email"));
         String photo = info_user.get("user_photo");
         Picasso.with(getApplicationContext()).load(photo).into(imv_photo);
+
+        ctweet=(EditText)findViewById(R.id.edtxt_tweet);
+        cfecha=(EditText)findViewById(R.id.edtxt_fecha);
+
+        usuario=info_user.get("user_name");
+
         iniciarBaseDeDatos();
         leerTweets();
-        escribirTweets(info_user.get("user_name"));
+        //escribirTweets(info_user.get("user_name"));
     }
     public void cerrarSesion(View view){
         FirebaseAuth.getInstance().signOut();
@@ -85,4 +95,13 @@ public class PerfilUsuario extends AppCompatActivity {
             tweets.child(tweet).child("autor").setValue(autor);
             tweets.child(tweet).child("fecha").setValue(fecha);
     }
+        public void realizartweet(View view){
+            String user = usuario;
+            String tweet = ctweet.getText().toString();
+            String fecha = cfecha.getText().toString();
+            DatabaseReference tweets = db_reference.child("Grupo5").child("tweets").child(tweet);
+            tweets.child("autor").setValue(user);
+            tweets.child("fecha").setValue(fecha);
+            Toast.makeText(getApplicationContext(),"El tweet fue publicado",Toast.LENGTH_SHORT).show();
+        }
 }
